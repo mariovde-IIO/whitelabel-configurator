@@ -29,7 +29,7 @@ export default function Configurator({ filters }) {
       </div>
 
       <div className="pt-12 lg:grid lg:grid-cols-3 lg:gap-x-8 xl:grid-cols-4">
-        <aside>
+        <aside className="h-screen overflow-y-auto	">
           <h2 className="sr-only">Filters</h2>
 
           <div className="hidden lg:block">
@@ -37,27 +37,31 @@ export default function Configurator({ filters }) {
               {filters.map((filter, filterIdx) => (
                 <div
                   key={filter.name}
-                  className={filterIdx === 0 ? null : "pt-10"}
+                  className={filterIdx === 0 ? null : "pt-4"}
                 >
                   <fieldset>
                     <legend className="block text-sm font-medium text-gray-900">
-                      {filter.label} -{" "}
+                      {filter.label}{" "}
                       {filter.name === "stripes" && (
-                        <span
-                          className="text-blue-500"
-                          role="button"
-                          onClick={() => {
-                            setShoeConfig({
-                              items: shoeConfig.items,
-                              withStripes: !shoeConfig.withStripes,
-                            });
-                          }}
-                        >
-                          {shoeConfig.withStripes ? "hide" : "show"}
-                        </span>
+                        <>
+                          {" "}
+                          -{" "}
+                          <span
+                            className="text-blue-500"
+                            role="button"
+                            onClick={() => {
+                              setShoeConfig({
+                                items: shoeConfig.items,
+                                withStripes: !shoeConfig.withStripes,
+                              });
+                            }}
+                          >
+                            {shoeConfig.withStripes ? "hide" : "show"}
+                          </span>
+                        </>
                       )}
                     </legend>
-                    <div className="space-y-3 pt-6">
+                    <div className="space-y-2 pt-4">
                       {filter.items.map((value, optionIdx) => (
                         <div key={value.hexValue} className="flex items-center">
                           <input

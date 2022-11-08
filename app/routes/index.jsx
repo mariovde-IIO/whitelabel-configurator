@@ -5,7 +5,6 @@ import { client } from "../models/contentful.server";
 
 export async function loader() {
   const filters = await client.getFilters();
-  console.log(filters);
   return json({ filters });
 }
 

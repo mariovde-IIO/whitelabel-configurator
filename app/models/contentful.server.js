@@ -33,7 +33,6 @@ async function getFilters() {
   const response = await apiCall(query);
   const json = await response.json();
 
-  console.log("Json filters ", JSON.stringify(json));
   const formattedData = await json.data.filterCollection.items.map(
     async (filter) => {
       const { name, label } = filter;

@@ -105,6 +105,7 @@ export default function ThreeCanvas({ snapShot }) {
   return (
     <>
       <Canvas
+        style={{ height: "100vh" }}
         concurrent
         pixelRatio={[1, 1.5]}
         camera={{ position: [0, 0, 1.75] }}
